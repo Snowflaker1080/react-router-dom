@@ -1,4 +1,3 @@
-import { use } from 'react';
 import { useState } from 'react';
 import { useNavigate } from 'react-router';
 
@@ -12,8 +11,8 @@ const PokemonForm = (props) => {
   const [formData, setFormData] = useState(initialState);
   const navigate = useNavigate();
 
-  const handleSubmit = (evt) => {
-    evt.preventDefault();
+  const handleSubmit = (event) => {
+    event.preventDefault();
     props.addPokemon(formData);
     setFormData(initialState);
     navigate('/pokemon');

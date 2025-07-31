@@ -1,10 +1,10 @@
 import { useState } from 'react';
 import PokemonList from './components/PokemonList/PokemonList';
-import "./App.css";
 import NavBar from './components/NavBar/NavBar';
 import PokemonDetails from './components/PokemonDetails/PokemonDetails';
 import PokemonForm from './components/PokemonForm/PokemonForm';
 import { Route, Routes } from 'react-router';
+import "./App.css";
 
 const initialState = [
   { _id: 1, name: 'bulbasaur', weight: 69, height: 7 },
@@ -16,7 +16,13 @@ const initialState = [
 
 const App = () => {
   const [pokemon, setPokemon] = useState(initialState);
-    return (
+
+  const addPokemon = (newPokemonData) => {
+    newPokemonData._id = pokemon.length + 1;
+    setPokemon([...pokemon, newPokemonData]);
+  };
+
+  return (
     <>
       <NavBar />
       <h1>Pokemon!</h1>
@@ -38,10 +44,7 @@ const App = () => {
   )
 };
 
- const addPokemon = (newPokemonData) => {
-    newPokemonData._id = pokemon.length + 1;
-    setPokemon([...pokemon, newPokemonData]);
-  };
+
 
 
 export default App;
