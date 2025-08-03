@@ -9,7 +9,7 @@ const singlePokemon = props.pokemon.find((poke) => (
   ));
   console.log('Pokemon Object:', singlePokemon)
 
-  if (!id) {
+  if (!singlePokemon) {
     return <p>No pokemon of that ID</p>
   }
 
